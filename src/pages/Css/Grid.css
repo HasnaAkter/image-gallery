@@ -1,0 +1,40 @@
+/* Form.css */
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+    
+  }
+  
+  .item {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    font-size: 18px;
+    border-radius: 10px;
+    border: 2px solid rgb(224, 224, 224);
+  }
+  
+  /* Additional styling if needed */
+  .my-5 {
+    margin-top: 5rem;
+  }
+
+  
+  hr {
+    border: 0;
+    height: 2px;
+    background: #ccc;
+    margin: 1em 0;
+  }
+  .item-added-images {
+  border: 4px dotted rgb(224, 224, 224);
+  border-radius: 10px;/* Adjust the color and size as needed */
+  
+}
+img {
+      border-radius: 10px;
+      
+      
+}
+

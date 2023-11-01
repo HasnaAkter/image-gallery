@@ -1,9 +1,11 @@
+import Form from "./Form";
 
 
 const Home = () => {
     return (
         <div>
-           <p>Lorem ipsum dolor sit  consectetur, </p> 
+            <Form></Form>
+          
         </div>
     );
 };
