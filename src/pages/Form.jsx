@@ -61,9 +61,7 @@ const DraggableImage = ({
           <img src={image} alt={`Image ${index + 1}`} />
         </label>
       </div>
-      
     </div>
-    
   );
 };
 
@@ -145,8 +143,8 @@ const Form = () => {
             />
           ))}
           <div className="item-added-images">
-          <img src={img12} alt="" />
-        </div>
+            <img src={img12} alt="" />
+          </div>
         </div>
       </div>
     </DndProvider>
