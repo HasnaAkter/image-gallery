@@ -61,13 +61,19 @@ const Form = () => {
     <div className="my-5 border-solid border-2 bg-gray-100 shadow-lg shadow-gray-500/50">
       <div className="flex">
         <div className="p-5">
-          <h2 className="font-bold text-2xl">Gallery</h2>
+          <h2 className="font-bold text-2xl">
+            {selectedItems.length > 0
+              ? `Selected items: ${selectedItems.length}`
+              : "Gallery"}
+          </h2>
         </div>
-        <div className="ml-auto p-5">
-          <button onClick={handleDelete}>
-            Delete ({selectedItems.length})
-          </button>
-        </div>
+        {selectedItems.length > 0 && (
+          <div className="ml-auto p-5">
+            <button onClick={handleDelete}>
+              Delete ({selectedItems.length})
+            </button>
+          </div>
+        )}
       </div>
       <hr className="border-solid bg-gray-300" />
       <div className="grid grid-cols-5 gap-4 p-10">
