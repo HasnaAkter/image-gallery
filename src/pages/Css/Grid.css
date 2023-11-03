@@ -40,6 +40,7 @@ img {
 .item:hover {
   box-shadow: 0px 0px 10px rgba(38, 37, 37, 0.2);
   opacity: 0.3;
+  color: blueviolet;
 }
 .deleted {
   opacity: 0.5; /* Example: Reduce opacity for deleted items */

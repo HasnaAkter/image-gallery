@@ -43,14 +43,18 @@ const DraggableImage = ({
     }),
   });
 
-  // Always show the checkbox for deleted items
-  const isCheckboxVisible = isDeleted || isSelected;
+  const [isHovered, setIsHovered] = useState(false);
+
+  const isCheckboxVisible = isHovered || isSelected || isDeleted;
 
   const itemStyle = {
-    opacity: isSelected ? 0.5 : 1, // Reduce opacity for selected items
+    opacity: isSelected ? 0.5 : 1,
   };
 
-  drag(drop(ref));
+  drag(drop(ref), {
+    hover: () => setIsHovered(true),
+    end: () => setIsHovered(false),
+  });
 
   return (
     <div
@@ -60,7 +64,11 @@ const DraggableImage = ({
       }`}
       style={itemStyle}
     >
-      <div className="item">
+      <div
+        className="item"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
         {isDeleted ? (
           <img src={image} alt={`Image ${index + 1}`} />
         ) : (
@@ -79,8 +87,6 @@ const DraggableImage = ({
     </div>
   );
 };
-
-
 
 const Form = () => {
   const [images, setImages] = useState([
