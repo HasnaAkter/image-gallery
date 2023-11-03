@@ -74,7 +74,6 @@ const DraggableImage = ({
         ) : (
           <label className="">
             <input
-               
               className="flex items-start mx-1 my-1 h-5 w-5 "
               type="checkbox"
               checked={isSelected}
