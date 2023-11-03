@@ -23,7 +23,7 @@ const DraggableImage = ({
   moveImage,
   isSelected,
   toggleSelection,
-  isDeleted, // New prop to indicate if the item is deleted
+  isDeleted,
 }) => {
   const ref = useRef(null);
   const [, drop] = useDrop({
@@ -43,7 +43,12 @@ const DraggableImage = ({
     }),
   });
 
-  const [isCheckboxVisible, setCheckboxVisible] = useState(false);
+  // Always show the checkbox for deleted items
+  const isCheckboxVisible = isDeleted || isSelected;
+
+  const itemStyle = {
+    opacity: isSelected ? 0.5 : 1, // Reduce opacity for selected items
+  };
 
   drag(drop(ref));
 
@@ -53,8 +58,7 @@ const DraggableImage = ({
       className={`item ${isDragging ? "dragging" : ""} ${
         index === 0 ? "row-span-2 col-span-2" : ""
       }`}
-      onMouseEnter={() => setCheckboxVisible(true)}
-      onMouseLeave={() => setCheckboxVisible(isSelected)}
+      style={itemStyle}
     >
       <div className="item">
         {isDeleted ? (
@@ -75,6 +79,7 @@ const DraggableImage = ({
     </div>
   );
 };
+
 
 
 const Form = () => {
