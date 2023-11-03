@@ -23,6 +23,7 @@ const DraggableImage = ({
   moveImage,
   isSelected,
   toggleSelection,
+  isDeleted, // New prop to indicate if the item is deleted
 }) => {
   const ref = useRef(null);
   const [, drop] = useDrop({
@@ -42,6 +43,8 @@ const DraggableImage = ({
     }),
   });
 
+  const [isCheckboxVisible, setCheckboxVisible] = useState(false);
+
   drag(drop(ref));
 
   return (
@@ -50,20 +53,29 @@ const DraggableImage = ({
       className={`item ${isDragging ? "dragging" : ""} ${
         index === 0 ? "row-span-2 col-span-2" : ""
       }`}
+      onMouseEnter={() => setCheckboxVisible(true)}
+      onMouseLeave={() => setCheckboxVisible(isSelected)}
     >
       <div className="item">
-        <label>
-          <input
-            type="checkbox"
-            checked={isSelected}
-            onChange={() => toggleSelection(index)}
-          />
+        {isDeleted ? (
           <img src={image} alt={`Image ${index + 1}`} />
-        </label>
+        ) : (
+          <label>
+            <input
+              className="h-5 w-5"
+              type="checkbox"
+              checked={isSelected}
+              onChange={() => toggleSelection(index)}
+              style={{ visibility: isCheckboxVisible ? "visible" : "hidden" }}
+            />
+            <img src={image} alt={`Image ${index + 1}`} />
+          </label>
+        )}
       </div>
     </div>
   );
 };
+
 
 const Form = () => {
   const [images, setImages] = useState([
@@ -119,14 +131,19 @@ const Form = () => {
         <div className="flex">
           <div className="p-5">
             <h2 className="font-bold text-2xl">
-              {selectedItems.length > 0
-                ? `Selected items: ${selectedItems.length}`
-                : "Gallery"}
+              {selectedItems.length > 0 ? (
+                <label>
+                  <input className="h-5 w-5" type="checkbox" checked />
+                  {`  ${selectedItems.length} Files Selected`}
+                </label>
+              ) : (
+                "Gallery"
+              )}
             </h2>
           </div>
           {selectedItems.length > 0 && (
             <div className="ml-auto p-5">
-              <button onClick={handleDelete}>Delete</button>
+              <button onClick={handleDelete}>Delete Files</button>
             </div>
           )}
         </div>

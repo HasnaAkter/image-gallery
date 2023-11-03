@@ -47,5 +47,7 @@ img {
   /* Add any other styles to indicate that the items are deleted */
 }
 
-
-
+button{
+  color: red;
+}
+  
