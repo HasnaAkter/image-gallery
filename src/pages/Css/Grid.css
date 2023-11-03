@@ -1,4 +1,4 @@
-/* Form.css */
+
 
 .grid {
     display: grid;
@@ -15,7 +15,7 @@
     border: 2px solid rgb(224, 224, 224);
   }
   
-  /* Additional styling if needed */
+  
   .my-5 {
     margin-top: 5rem;
   }
@@ -29,7 +29,8 @@
   }
   .item-added-images {
   border: 4px dotted rgb(224, 224, 224);
-  border-radius: 10px;/* Adjust the color and size as needed */
+  border-radius: 10px;
+  background: #f1f1f1;
   
 }
 img {
@@ -43,9 +44,9 @@ img {
   color: blueviolet;
 }
 .deleted {
-  opacity: 0.5; /* Example: Reduce opacity for deleted items */
-  filter: grayscale(100%); /* Example: Grayscale effect for deleted items */
-  /* Add any other styles to indicate that the items are deleted */
+  opacity: 0.5; 
+  filter: grayscale(100%); 
+  
 }
 
 button{

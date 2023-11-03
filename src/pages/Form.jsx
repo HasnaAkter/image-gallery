@@ -72,9 +72,9 @@ const DraggableImage = ({
         {isDeleted ? (
           <img src={image} alt={`Image ${index + 1}`} />
         ) : (
-          <label>
+          <label className="">
             <input
-              className="h-5 w-5"
+              className="flex items-start ms-5 mt-5  h-5 w-5"
               type="checkbox"
               checked={isSelected}
               onChange={() => toggleSelection(index)}
@@ -138,7 +138,7 @@ const Form = () => {
 
   return (
     <DndProvider backend={HTML5Backend}>
-      <div className="my-5 border-solid border-2 bg-gray-100 shadow-lg shadow-gray-500/50">
+      <div className="my-5 border-solid border-2 bg-white shadow-lg shadow-gray-500/50">
         <div className="flex">
           <div className="p-5">
             <h2 className="font-bold text-2xl">
